@@ -7,45 +7,91 @@
 
 var Song = require('../api/song/song.model');
 var User = require('../api/user/user.model');
+var Playlist = require('../api/playlist/playlist.model');
+var Playlog = require('../api/playlog/playlog.model');
+var Chat = require('../api/chat/chat.model');
+var Vote = require('../api/vote/vote.model');
 
 Song.find({}).remove(function() {
-  Song.create({
-      title : 'Development Tools',
-      info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspect.',
-      inPlaylist: false,
-      votes: 0
-    }, {
-      title : 'Server and Client integration',
-      info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.',
-      inPlaylist: false,
-      votes: 0
-    }, {
-      title : 'Smart Build System',
-      info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic',
-      inPlaylist: false,
-      votes: 0
-    },  {
-      title : 'Modular Structure',
-      info : 'Best practice client and server structures allow for more code reusability and maximum scalability',
-      inPlaylist: false,
-      votes: 0
-    },  {
-      title : 'Optimized Build',
-      info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images.',
-      inPlaylist: false,
-      votes: 0
-    },{
-      title : 'Deployment Ready',
-      info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators',
-      inPlaylist: false,
-      votes: 0
+  Song.create(
+    {
+      title: 'Summertime Sadness',
+      artist: 'Lana Del Rey',
+      source: 'youtube',
+      length: 283000,
+      url: 'https://www.youtube.com/watch?v=TdrL3QxjyVw',
+      videoId: 'TdrL3QxjyVw',
+      //votes: 20,
+      thumbnailUrlHigh: 'https://i.ytimg.com/vi/TdrL3QxjyVw/hqdefault.jpg'
     },
     {
-      title : 'Song 7',
-      info : 'The seventh song',
-      inPlaylist: true,
-      votes: 0
-    });
+      title: 'Moondust (Sound Remedy Remix)',
+      artist: 'Jaymes Young',
+      source: 'youtube',
+      length: 360000,
+      url: 'https://www.youtube.com/watch?v=liwCcSH9xzw',
+      videoId: 'liwCcSH9xzw',
+      //votes: 50,
+      thumbnailUrlHigh: 'https://i.ytimg.com/vi/liwCcSH9xzw/hqdefault.jpg'
+    },
+    {
+      title: 'Benediction',
+      artist: 'Hot Natured & Ali Love',
+      source: 'youtube',
+      length: 393000,
+      url: 'https://www.youtube.com/watch?v=PXx1CLAJ-OA',
+      videoId: 'PXx1CLAJ-OA',
+      //votes: 40,
+      thumbnailUrlHigh: 'https://i.ytimg.com/vi/PXx1CLAJ-OA/hqdefault.jpg'
+    },
+    {
+      title: 'Stonehenge',
+      artist: 'Ylvis',
+      source: 'youtube',
+      length: 235000,
+      url: 'https://www.youtube.com/watch?v=mbyzgeee2mg',
+      videoId: 'mbyzgeee2mg',
+      //votes: 10,
+      thumbnailUrlHigh: 'https://i.ytimg.com/vi/mbyzgeee2mg/hqdefault.jpg'
+    },
+    {
+      title: 'Feels Like We Only Go Backwards',
+      artist: 'Tame Impala',
+      source: 'youtube',
+      length: 201000,
+      url: 'https://www.youtube.com/watch?v=wycjnCCgUes',
+      videoId: 'wycjnCCgUes',
+      //votes: 39,
+      thumbnailUrlHigh: 'https://i.ytimg.com/vi/wycjnCCgUes/hqdefault.jpg'
+    }, function(err) {
+      console.log('The error is %s', err);
+    })
+});
+
+Playlist.find({}).remove(function() {
+
+});
+
+Playlog.find({}).remove(function() {
+
+});
+
+Vote.find({}).remove(function() {
+
+});
+
+Chat.find({}).remove(function() {
+  Chat.create({
+      date: Date.now(),
+      body: 'This is a test chat 1'
+    },
+    {
+      date: Date.now(),
+      body: 'This is a test chat 2'
+    },
+    function() {
+      console.log('Finished inserting chats.');
+    })
 });
 
 User.find({}).remove(function() {

@@ -1,0 +1,14 @@
+{
+  "name": "jquery.mb.ytplayer",
+  "homepage": "https://github.com/pupunzi/jquery.mb.YTPlayer",
+  "version": "2.7.5",
+  "_release": "2.7.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.7.5",
+    "commit": "78ac8f5218b05c9273c5c3d86caa0a897d7c25df"
+  },
+  "_source": "git://github.com/pupunzi/jquery.mb.YTPlayer.git",
+  "_target": "2.7.5",
+  "_originalSource": "jquery.mb.ytplayer"
+}
