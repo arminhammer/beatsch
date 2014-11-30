@@ -13,23 +13,6 @@ exports.index = function(req, res) {
   });
 };
 
-// Get a single song
-exports.show = function(req, res) {
-  Song.findById(req.params.id, function (err, song) {
-    if(err) { return handleError(res, err); }
-    if(!song) { return res.send(404); }
-    return res.json(song);
-  });
-};
-
-// Creates a new song in the DB.
-exports.create = function(req, res) {
-  Song.create(req.body, function(err, song) {
-    if(err) { return handleError(res, err); }
-    return res.status(201).json(song);
-  });
-};
-
 // Updates an existing song in the DB.
 exports.addVote = function(req, res) {
   //if(req.body._id) { delete req.body._id; }
@@ -93,7 +76,7 @@ exports.addVote = function(req, res) {
 
         });
 
-        return res.status(200).json(song);
+        return res.status(201).json(song);
 
       });
 
@@ -153,6 +136,7 @@ exports.addSong = function(req, res) {
               hit[0].votes.push(newVote);
               hit[0].save(function () {
                 console.log('Saved vote to playlist');
+                return res.status(201).json(song);
               });
 
             }
@@ -171,6 +155,7 @@ exports.addSong = function(req, res) {
                   }
                   console.log('Added %s to playlist.', song.title);
                   console.log(newPlaylist);
+                  return res.status(201).json(song);
 
                 });
 
@@ -179,18 +164,6 @@ exports.addSong = function(req, res) {
             }
 
           })
-
-          /*
-          var newPlaylist = new Playlist;
-          newPlaylist._song = song._id;
-          newPlaylist.votes.push(newVote);
-
-          newPlaylist.save(function (err, playlist) {
-
-            console.log('Successfully existing song to the playlist');
-
-          });
-          */
 
         });
 
@@ -202,7 +175,6 @@ exports.addSong = function(req, res) {
 
         var newSong = new Song();
         newSong.title = req.body.newSong.snippet.title;
-        newSong.artist = req.body.newSong.snippet.title;
         newSong.source = 'youtube';
         newSong.length = 300000;
         newSong.url = 'https://www.youtube.com/watch?v=' + req.body.newSong.id.videoId;
@@ -236,6 +208,7 @@ exports.addSong = function(req, res) {
               hit[0].votes.push(newVote);
               hit[0].save(function () {
                 console.log('Saved vote to playlist');
+                return res.status(201).json(song);
               });
 
             }
@@ -255,6 +228,7 @@ exports.addSong = function(req, res) {
                   console.log('Added %s to playlist.', song.title);
                   console.log(newPlaylist);
 
+                  return res.status(201).json(song);
                 });
 
               })
@@ -265,6 +239,8 @@ exports.addSong = function(req, res) {
 
         });
 
+        return res.status(201).json(song);
+
       }
 
     });
@@ -272,6 +248,25 @@ exports.addSong = function(req, res) {
   });
 
 };
+
+/*
+
+ // Get a single song
+ exports.show = function(req, res) {
+ Song.findById(req.params.id, function (err, song) {
+ if(err) { return handleError(res, err); }
+ if(!song) { return res.send(404); }
+ return res.json(song);
+ });
+ };
+
+ // Creates a new song in the DB.
+ exports.create = function(req, res) {
+ Song.create(req.body, function(err, song) {
+ if(err) { return handleError(res, err); }
+ return res.status(201).json(song);
+ });
+ };
 
 // Updates an existing song in the DB.
 exports.update = function(req, res) {
@@ -298,6 +293,7 @@ exports.destroy = function(req, res) {
     });
   });
 };
+*/
 
 function handleError(res, err) {
   return res.status(500).send(err);
