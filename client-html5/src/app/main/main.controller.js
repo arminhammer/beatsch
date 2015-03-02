@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('clientHtml5')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainController', function ($scope) {
     $scope.awesomeThings = [
       {
         'title': 'AngularJS',

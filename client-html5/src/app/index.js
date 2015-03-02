@@ -3,10 +3,18 @@
 angular.module('clientHtml5', ['ui.router', 'ui.bootstrap'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      .state('app', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        views: {
+          'navbar': {
+            templateUrl: '../components/navbar/navbar.html',
+            controller: 'NavbarController'
+          },
+          'content@': {
+            templateUrl: 'app/main/main.html',
+            controller: 'MainController'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
