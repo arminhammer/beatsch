@@ -3,7 +3,7 @@
 describe('controllers', function(){
   var scope;
 
-  beforeEach(module('beatschClientHtml5'));
+  beforeEach(module('clientHtml5'));
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
@@ -19,4 +19,5 @@ describe('controllers', function(){
     expect(angular.isArray(scope.awesomeThings)).toBeTruthy();
     expect(scope.awesomeThings.length > 5).toBeTruthy();
   }));
+
 });

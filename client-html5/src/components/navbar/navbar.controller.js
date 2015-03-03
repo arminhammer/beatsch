@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('clientHtml5')
+angular.module('beatschClientHtml5')
   .controller('NavbarController', function ($scope) {
 
     $scope.date = new Date();

@@ -1,6 +1,9 @@
 'use strict';
 
-angular.module('clientHtml5', ['ui.router', 'ui.bootstrap'])
+angular.module('beatschClientHtml5', [
+  'ui.router',
+  'ui.bootstrap'
+])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('app', {

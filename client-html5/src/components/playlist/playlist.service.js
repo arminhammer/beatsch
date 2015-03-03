@@ -1,7 +1,7 @@
 /**
  * Created by armin on 1/31/15.
  */
-angular.module('clientHtml5', [])
+angular.module('beatschClientHtml5')
 
   .service('PlaylistService', function () {
 
